@@ -1,0 +1,365 @@
+{
+  "totals": {
+    "messages": 3349,
+    "users": 10,
+    "avg_message_length": 68.0,
+    "min_message_length": 9,
+    "max_message_length": 105
+  },
+  "names": {
+    "user_ids_with_multiple_names_count": 0,
+    "user_ids_with_multiple_names_examples": [],
+    "full_name_collisions_count": 0,
+    "full_name_collisions_examples": [],
+    "first_name_collisions_top": []
+  },
+  "encoding": {
+    "names_with_replacement_char_count": 0,
+    "names_with_replacement_char_examples": [],
+    "sample_bad_messages": []
+  },
+  "timestamps": {
+    "unparsable": 0,
+    "far_future_gt_1y": 0,
+    "far_past_lt_2010": 0,
+    "out_of_order_user_count": 0
+  },
+  "duplicates": {
+    "per_user_duplicates_examples": [],
+    "cross_user_duplicate_texts": [],
+    "duplicate_message_id_count": 0,
+    "duplicate_message_id_examples": []
+  },
+  "pii_samples": {
+    "phone_like": [
+      {
+        "id": "a5759130-9354-48cd-a398-949661844fcb",
+        "user_id": "23103ae5-38a8-4d82-af82-e9942aa4aefb",
+        "snippet": "Please update my profile with my new phone number: 555-349-7841."
+      },
+      {
+        "id": "016eb934-d8b0-4d8e-b767-ef884fdf3625",
+        "user_id": "1a4b66ec-2fe6-46d8-9d6e-a81ec06bc5c5",
+        "snippet": "I need my frequent flyer number updated: 123456789."
+      },
+      {
+        "id": "904db549-af75-43ce-ae3e-ae4baf8541d1",
+        "user_id": "fc15e14c-f56f-4137-a7cd-797f90b61c93",
+        "snippet": "Please update my mobile number to 987-654-3210."
+      },
+      {
+        "id": "32c3ee74-0e65-44c8-a1c6-5ec134043e75",
+        "user_id": "1a4b66ec-2fe6-46d8-9d6e-a81ec06bc5c5",
+        "snippet": "My new fax number is 431-555-2363 please update your records."
+      },
+      {
+        "id": "dc6d45e9-59f8-47c4-886d-43a35c268ab4",
+        "user_id": "a1ac663a-277a-4782-a0ba-7efdca8ae2ee",
+        "snippet": "Please change my emergency contact number to 312-555-6793."
+      },
+      {
+        "id": "a3e8ff01-4bdb-4d4b-9589-d0dbf6f80e51",
+        "user_id": "1a4b66ec-2fe6-46d8-9d6e-a81ec06bc5c5",
+        "snippet": "My brother's new number is 447-555-8823; update my contact list."
+      },
+      {
+        "id": "b34bd248-66b9-4eda-b8ef-9238e24f03bc",
+        "user_id": "23103ae5-38a8-4d82-af82-e9942aa4aefb",
+        "snippet": "Please amend my account with my HNW membership number: 001-235-789."
+      },
+      {
+        "id": "54f737b8-a0dc-4d89-aa08-36edd0438273",
+        "user_id": "cd3a350e-dbd2-408f-afa0-16a072f56d23",
+        "snippet": "My direct line at work is 212-555-6051; kindly update your records."
+      },
+      {
+        "id": "394bd632-5e60-43ba-87c3-07cc0d557c38",
+        "user_id": "cd3a350e-dbd2-408f-afa0-16a072f56d23",
+        "snippet": "My assistant's contact number has changed to 647-555-9381."
+      },
+      {
+        "id": "53089af2-c5cc-42d2-b2d3-64fedbe7be59",
+        "user_id": "cd3a350e-dbd2-408f-afa0-16a072f56d23",
+        "snippet": "Please refresh my account with my passport number: 987654321."
+      }
+    ],
+    "email_like": [
+      {
+        "id": "0233cd83-6f3f-4ceb-99ca-6e62023eb4d2",
+        "user_id": "5965bb48-a1d3-40d6-a746-c049d983bc76",
+        "snippet": "I have a new email address johnsmith1000@example.com to be updated on file."
+      },
+      {
+        "id": "ce784313-3cf4-4b86-8a0b-e17f1fe2e27c",
+        "user_id": "5965bb48-a1d3-40d6-a746-c049d983bc76",
+        "snippet": "Revise my email in your records to jane.doe@example.com going forward."
+      },
+      {
+        "id": "c960fddb-2862-41b0-88b9-a6200b864859",
+        "user_id": "6b6dc782-f40c-4224-b5d8-198a9070b097",
+        "snippet": "Update my contact information with my new email: richie1945@luxlife.com."
+      },
+      {
+        "id": "8f01aa0e-d139-40d5-bfe4-2cd401d9f39f",
+        "user_id": "23103ae5-38a8-4d82-af82-e9942aa4aefb",
+        "snippet": "Please alter my contact email to clarlux2025@mail.com for updates."
+      },
+      {
+        "id": "edaaf3e9-ed5b-4a17-8876-c7e45827a0ec",
+        "user_id": "a1ac663a-277a-4782-a0ba-7efdca8ae2ee",
+        "snippet": "Please email my updated itinerary to my assistant at assistant@example.com."
+      },
+      {
+        "id": "c2f2ae53-479d-4464-a98c-3c4bcf0b4d8f",
+        "user_id": "cd3a350e-dbd2-408f-afa0-16a072f56d23",
+        "snippet": "Update my file with my secondary email: highclient@eliteemail.com."
+      },
+      {
+        "id": "b225a942-bbb8-46dc-99c4-12263ef8d01d",
+        "user_id": "130f1fb9-2ddf-4049-ad0e-9a270f0cb561",
+        "snippet": "Can you add my assistant's email for trip notifications? aide@example.com."
+      },
+      {
+        "id": "86389e4b-5cf7-4ebe-8b8e-e69f71b4b394",
+        "user_id": "a1ac663a-277a-4782-a0ba-7efdca8ae2ee",
+        "snippet": "Adjust my email for invoices to invoice123@personalmail.com."
+      }
+    ],
+    "credit_card_like": []
+  },
+  "top_words": [
+    [
+      "please",
+      560
+    ],
+    [
+      "can",
+      478
+    ],
+    [
+      "could",
+      299
+    ],
+    [
+      "next",
+      278
+    ],
+    [
+      "private",
+      254
+    ],
+    [
+      "need",
+      247
+    ],
+    [
+      "s",
+      236
+    ],
+    [
+      "arrange",
+      212
+    ],
+    [
+      "hotel",
+      190
+    ],
+    [
+      "last",
+      188
+    ],
+    [
+      "tickets",
+      187
+    ],
+    [
+      "book",
+      177
+    ],
+    [
+      "trip",
+      156
+    ],
+    [
+      "new",
+      153
+    ],
+    [
+      "ensure",
+      143
+    ],
+    [
+      "service",
+      142
+    ],
+    [
+      "dinner",
+      138
+    ],
+    [
+      "suite",
+      138
+    ],
+    [
+      "there",
+      134
+    ],
+    [
+      "stay",
+      132
+    ],
+    [
+      "m",
+      128
+    ],
+    [
+      "reservation",
+      126
+    ],
+    [
+      "like",
+      126
+    ],
+    [
+      "tour",
+      123
+    ],
+    [
+      "any",
+      114
+    ]
+  ],
+  "integrity": {
+    "invalid_user_id_count": 0,
+    "invalid_message_id_count": 0,
+    "missing_fields": {
+      "missing_user_id": 0,
+      "missing_user_name": 0,
+      "missing_timestamp": 0,
+      "missing_message": 0
+    }
+  },
+  "pii_cross_user_reuse": {
+    "shared_phones": [
+      {
+        "phone": "1234567890",
+        "user_count": 5
+      },
+      {
+        "phone": "987654321",
+        "user_count": 3
+      },
+      {
+        "phone": "123456789",
+        "user_count": 2
+      },
+      {
+        "phone": "9876543210",
+        "user_count": 2
+      },
+      {
+        "phone": "447700900123",
+        "user_count": 2
+      }
+    ],
+    "shared_emails": []
+  },
+  "contradictions": {
+    "seat_preference_flips": [
+      {
+        "user_id": "a1ac663a-277a-4782-a0ba-7efdca8ae2ee",
+        "type": "seat_preference_flip"
+      },
+      {
+        "user_id": "1a4b66ec-2fe6-46d8-9d6e-a81ec06bc5c5",
+        "type": "seat_preference_flip"
+      },
+      {
+        "user_id": "5965bb48-a1d3-40d6-a746-c049d983bc76",
+        "type": "seat_preference_flip"
+      }
+    ],
+    "same_day_multi_city": [
+      {
+        "user_id": "cd3a350e-dbd2-408f-afa0-16a072f56d23",
+        "date": "2025-11-10",
+        "cities": [
+          "barcelona",
+          "rome"
+        ]
+      },
+      {
+        "user_id": "e35ed60a-5190-4a5f-b3cd-74ced7519b4a",
+        "date": "2025-12-10",
+        "cities": [
+          "berlin",
+          "nyc"
+        ]
+      },
+      {
+        "user_id": "23103ae5-38a8-4d82-af82-e9942aa4aefb",
+        "date": "2025-12-10",
+        "cities": [
+          "paris",
+          "tokyo"
+        ]
+      },
+      {
+        "user_id": "5b2e7346-eef5-445d-a063-6c5267f04bf8",
+        "date": "2025-12-10",
+        "cities": [
+          "dubai",
+          "monaco",
+          "new york"
+        ]
+      },
+      {
+        "user_id": "fc15e14c-f56f-4137-a7cd-797f90b61c93",
+        "date": "2025-12-10",
+        "cities": [
+          "paris",
+          "vienna"
+        ]
+      },
+      {
+        "user_id": "130f1fb9-2ddf-4049-ad0e-9a270f0cb561",
+        "date": "2025-12-10",
+        "cities": [
+          "new york",
+          "singapore"
+        ]
+      },
+      {
+        "user_id": "1a4b66ec-2fe6-46d8-9d6e-a81ec06bc5c5",
+        "date": "2025-11-10",
+        "cities": [
+          "rome",
+          "tokyo"
+        ]
+      },
+      {
+        "user_id": "6b6dc782-f40c-4224-b5d8-198a9070b097",
+        "date": "2025-11-10",
+        "cities": [
+          "dubai",
+          "singapore"
+        ]
+      },
+      {
+        "user_id": "6b6dc782-f40c-4224-b5d8-198a9070b097",
+        "date": "2025-12-10",
+        "cities": [
+          "los angeles",
+          "milan",
+          "paris"
+        ]
+      }
+    ]
+  },
+  "cadence": {
+    "suspicious_cadence_users": []
+  },
+  "language": {
+    "script_shift_users": []
+  }
+}

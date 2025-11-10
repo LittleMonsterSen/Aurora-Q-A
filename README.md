@@ -1,8 +1,8 @@
 # Aurora-Q-A
-=======
+
 Member Memory QA — Anomaly Summary
 
-Below is a concise summary of anomalies and insights derived from the latest analysis in report.json.
+This repository contains a small FastAPI service and a data explorer. Below is a concise summary of anomalies and insights derived from the latest analysis in report.json.
 
 Totals
 - Messages: 3,349
@@ -26,7 +26,7 @@ PII & Cross‑User Reuse
 - Credit‑card‑like numbers (Luhn‑valid): none found in samples
 
 Behavioral / Temporal
-- Seat preference flips found for 3 users (both “prefer aisle” and “prefer window”). Treat latest statement as active preference.
+- Seat preference flips found for 3 users (both "prefer aisle" and "prefer window"). Treat latest statement as active preference.
 - Same‑day multi‑city mentions (likely planning intents vs confirmed bookings). Examples:
   - 2025‑12‑10: Paris + Tokyo (user 23103ae5-38a8-4d82-af82-e9942aa4aefb)
   - 2025‑12‑10: Los Angeles + Milan + Paris (user 6b6dc782-f40c-4224-b5d8-198a9070b097)
@@ -35,9 +35,13 @@ Behavioral / Temporal
 - Language/script shift: none flagged
 
 Content Signals
-- Top tokens reflect concierge and booking context: “please”, “can”, “book”, “arrange”, “tickets”, “hotel”, “trip”, etc.
+- Top tokens reflect concierge and booking context: "please", "can", "book", "arrange", "tickets", "hotel", "trip", etc.
 
 Implications for the Memory System
-- Preferences: resolve conflicts by recency (“latest wins”); keep provenance
-- Bookings: separate “intent” vs “confirmed” to avoid impossible travel conflicts (e.g., multi‑city same day)
+- Preferences: resolve conflicts by recency ("latest wins"); keep provenance
+- Bookings: separate "intent" vs "confirmed" to avoid impossible travel conflicts (e.g., multi‑city same day)
 - PII: normalize and consider redaction or separate storage; treat shared placeholders as noise
+
+How To Reproduce The Report
+- Install deps with uv: `uv pip install -r requirements.txt`
+- Run explorer: `uv run python scripts/explore_messages.py --page-limit 200 --max-pages 100 --output report.json`
