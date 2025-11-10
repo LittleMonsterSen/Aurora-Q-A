@@ -2,7 +2,7 @@
 =======
 Member Memory QA — Anomaly Summary
 
-This repository contains a small FastAPI service and a data explorer. Below is a concise summary of anomalies and insights derived from the latest analysis in report.json.
+Below is a concise summary of anomalies and insights derived from the latest analysis in report.json.
 
 Totals
 - Messages: 3,349
