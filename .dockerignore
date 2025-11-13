@@ -4,7 +4,6 @@ __pycache__
 .git
 .github
 .env
-data/
 report.json
 dist/
 build/

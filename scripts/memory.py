@@ -107,6 +107,7 @@ def ingest_messages(messages: List[Dict[str, Any]], only_user: Optional[str] = N
         if max_items and added >= max_items:
             break
     _print(f"Ingest summary — considered: {total}, added: {added}, skipped(empty): {skipped}")
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Ingest messages into mem0 Platform one by one")
     parser.add_argument(
