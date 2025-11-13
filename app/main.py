@@ -27,7 +27,14 @@ def create_app() -> FastAPI:
     messages_base = os.getenv(
         "MESSAGES_API_BASE", "https://november7-730026606190.europe-west1.run.app"
     )
-    qa = QASystem(messages_api_base=messages_base)
+    # Initialize QASystem lazily to avoid blocking startup
+    qa = None
+    
+    def get_qa():
+        nonlocal qa
+        if qa is None:
+            qa = QASystem(messages_api_base=messages_base)
+        return qa
 
     @app.get("/healthz")
     async def health() -> dict:
@@ -36,7 +43,7 @@ def create_app() -> FastAPI:
     @app.get("/ask")
     async def ask(question: str = Query(..., min_length=3)) -> JSONResponse:
         try:
-            answer = await qa.answer(question)
+            answer = await get_qa().answer(question)
             return JSONResponse({"answer": answer})
         except HTTPException:
             raise
@@ -56,7 +63,7 @@ def create_app() -> FastAPI:
         if len(q) < 3:
             raise HTTPException(status_code=422, detail="question must be at least 3 characters")
         try:
-            answer = await qa.answer(q)
+            answer = await get_qa().answer(q)
             return JSONResponse({"answer": answer})
         except HTTPException:
             raise
