@@ -24,6 +24,9 @@ build/
 .DS_Store
 Thumbs.db
 
-# Data and local state
-data/
+# Data and local state (keep index files, ignore other data)
+data/*
+!data/index/
+data/index/*
+!data/index/names.json
 
