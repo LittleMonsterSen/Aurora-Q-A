@@ -248,4 +248,3 @@ curl https://aurora-q-a-production.up.railway.app/healthz
 ## Deployment
 
 See `DEPLOYMENT.md` for Railway deployment instructions.
-
