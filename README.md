@@ -68,12 +68,6 @@ curl -X POST "https://aurora-q-a-production.up.railway.app/ask" \
 - "private dinner" wouldn't match "chef's tasting menu" without synonyms
 - Less effective for conversational queries
 
-#### Alternative 3: Fine-Tuned LLM (No Retrieval)
-**Why not:**
-- Context window limits (can't fit all messages)
-- No way to update knowledge without retraining
-- Expensive to fine-tune for each user
-- Can't cite sources or explain reasoning
 
 ### Why LLM Tool-Calling vs. Direct Retrieval?
 
@@ -103,16 +97,11 @@ The primary bottleneck is **retrieval accuracy** — finding the right memories 
    - Memory: "Sophia Al-Farsi wants to organize a private dinner under the stars in Santorini"
    - Challenge: Temporal information ("when") may be implicit or in metadata
 
-2. **Top-K Limitations**: Fixed `top_k=10` may miss relevant memories if:
-   - Many memories exist for the user
-   - Query is ambiguous
-   - Relevant memory has lower similarity score
-
-3. **Metadata Underutilization**: Timestamps in metadata aren't always used effectively
+2. **Metadata Underutilization**: Timestamps in metadata aren't always used effectively
    - LLM may not extract temporal patterns
    - No explicit date/time filtering in search
 
-4. **Name Resolution Errors**: Partial name matching can fail
+3. **Name Resolution Errors**: Partial name matching can fail
    - "Sophia" vs "Sophia Al-Farsi" — works
    - "Sofia" (typo) — fails
    - Multiple users with similar names — ambiguous
@@ -127,79 +116,22 @@ The primary bottleneck is **retrieval accuracy** — finding the right memories 
    - "private dinner" → ["private dinner", "chef dinner", "exclusive dining", "personalized meal"]
    - Search with each, merge results
 
-3. **Reranking**: Use a cross-encoder to rerank top-K results
-   - More accurate than cosine similarity alone
-   - Better at understanding query intent
-
-4. **Temporal Filtering**: Extract dates from queries and filter memories
+3. **Temporal Filtering**: Extract dates from queries and filter memories
    - "next month" → filter by timestamp range
    - "in 2025" → filter metadata
 
-5. **Multi-Hop Retrieval**: Chain multiple searches
+4. **Multi-Hop Retrieval**: Chain multiple searches
    - First: find user's dinner preferences
    - Second: find specific dinner events matching preferences
    - Combine results
 
-6. **Metadata-Aware Scoring**: Boost memories with matching metadata
+5. **Metadata-Aware Scoring**: Boost memories with matching metadata
    - If query mentions "dinner", boost memories with `categories: ["food"]`
    - Use structured attributes (e.g., `day_of_week`, `is_weekend`)
 
-7. **Feedback Loop**: Track which retrieved memories led to correct answers
+6. **Feedback Loop**: Track which retrieved memories led to correct answers
    - Log query → retrieved memories → final answer
    - Use for fine-tuning retrieval parameters
-
-## Next Steps
-
-### Short-Term (Immediate)
-1. **Increase `max_tokens`**: Current 512 may truncate answers (already increased to 4096 in code)
-2. **Add query logging**: Track retrieval performance
-   - Log: query, retrieved memories, scores, final answer
-   - Identify patterns in retrieval failures
-
-3. **Improve error handling**: Better messages for edge cases
-   - User not found → suggest similar names
-   - No results → suggest broader query
-
-### Medium-Term (1-2 weeks)
-1. **Implement reranking**: Add cross-encoder reranking step
-   - Use `sentence-transformers` or OpenAI embeddings
-   - Rerank top 20 → return top 5
-
-2. **Temporal extraction**: Parse dates from queries
-   - Use LLM to extract temporal intent
-   - Filter memories by timestamp range
-
-3. **Query expansion**: Generate query variations
-   - Use LLM to generate synonyms/related terms
-   - Search with each, merge and deduplicate
-
-4. **Metadata boosting**: Use categories/structured attributes
-   - Boost memories with matching categories
-   - Filter by structured attributes when available
-
-### Long-Term (1+ months)
-1. **Hybrid search**: Add BM25 keyword search
-   - Combine with vector search
-   - Weighted fusion of results
-
-2. **Multi-hop retrieval**: Implement iterative search
-   - First search: broad context
-   - Second search: specific details
-   - Chain results
-
-3. **Fine-tuning**: Optimize retrieval parameters
-   - A/B test different `top_k` values
-   - Tune embedding model parameters
-   - Optimize filter combinations
-
-4. **Evaluation framework**: Build test suite
-   - Ground truth Q&A pairs
-   - Measure retrieval precision/recall
-   - Track answer accuracy over time
-
-5. **Caching**: Cache frequent queries
-   - Reduce API calls for common questions
-   - Invalidate on new memory ingestion
 
 ## Data Quality Notes
 
@@ -207,7 +139,7 @@ The primary bottleneck is **retrieval accuracy** — finding the right memories 
 - Messages: 3,349 | Users: 10
 - **Preference Conflicts**: Seat preference flips (latest wins)
 - **Temporal Conflicts**: Same-day multi-city mentions (likely intents vs confirmed)
-- **PII**: Phone/email placeholders in test data
+- **PII**: different user share the same phone number and email address
 
 **Implications:**
 - Use recency for conflict resolution
