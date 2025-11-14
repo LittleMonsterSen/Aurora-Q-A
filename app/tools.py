@@ -70,7 +70,8 @@ class ToolsDispatcher:
                     query,
                     version="v2",
                     filters=filters,
-                    top_k=top_k
+                    top_k=50,
+                    rerank=True,
                 )
             except Exception as e:
                 error_msg = str(e)
@@ -80,6 +81,9 @@ class ToolsDispatcher:
             
             # Extract results list from response: {'results': [...]}
             results_list = results.get("results", []) if isinstance(results, dict) else []
+            if results_list:
+                results_list.sort(key=lambda x: x.get("metadata", {}).get("timestamp", 0), reverse=True)
+                results_list = results_list[:top_k]
             
             items: List[Dict[str, Any]] = []
             for r in results_list:
