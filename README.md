@@ -1,9 +1,5 @@
 # Aurora-Q-A
 
-Design Plan
-
-
-
 Member Memory QA — Anomaly Summary
 
 This repository contains a small FastAPI service and a data explorer. Below is a concise summary of anomalies and insights derived from the latest analysis in report.json.
@@ -68,9 +64,18 @@ POST /ask {"question": "..."}
 Response: {"answer": "..."}
 ```
 
-**Example:**
+**Examples:**
 ```bash
+# Local development
 curl "http://localhost:8000/ask?question=when%20does%20sophia%20have%20private%20dinner"
+
+# Production (Railway)
+curl "https://aurora-q-a-production.up.railway.app/ask?question=when%20does%20sophia%20have%20private%20dinner"
+
+# POST request
+curl -X POST "https://aurora-q-a-production.up.railway.app/ask" \
+  -H "Content-Type: application/json" \
+  -d '{"question": "when does sophia have private dinner"}'
 ```
 
 ## Design Decisions & Alternatives
@@ -248,11 +253,28 @@ uv sync
 export MEM0_API_KEY=your_key
 export OPENAI_API_KEY=your_key
 
-# Run the service
+# Run the service locally
 uvicorn app.main:app --reload
 
-# Test
+# Test locally
 curl "http://localhost:8000/ask?question=when%20does%20sophia%20have%20private%20dinner"
+
+# Or test production
+curl "https://aurora-q-a-production.up.railway.app/ask?question=when%20does%20sophia%20have%20private%20dinner"
+```
+
+## Production
+
+**Live API:** https://aurora-q-a-production.up.railway.app
+
+**Health Check:**
+```bash
+curl https://aurora-q-a-production.up.railway.app/healthz
+```
+
+## Deployment
+
+See `DEPLOYMENT.md` for Railway deployment instructions.
 ```
 
 ## Deployment
