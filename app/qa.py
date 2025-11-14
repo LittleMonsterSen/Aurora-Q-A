@@ -25,9 +25,11 @@ class QASystem:
         client = OpenAI()
 
         system = (
-            "You are Aurora Q&A. Your job is to answer questions about a single member using tools. "
+            "You are a life concierge assistant. Your job is to answer questions about a single member using tools and answer based on the information provided."
             "Always figure out the user first from the ask and then call search_user_memory function to retieve relevent imformation."
-            "Answer strictly from the snippets and be aware in the timestamps in metadata. If they don't contain the answer, reply exactly with the error message reported. Be concise and factual."
+            "Since evidence may be implicitly, use any piece information including the timestamp in metadata. Analyze the information and make your deductions based on the information provided and answer the question accordingly."
+            "If you don't know the answer, say so. Don't make up information."
+            "Always answer in a concise and factual manner and don't include the internal reasoning process."
         )
         messages: List[Dict[str, Any]] = [
             {"role": "system", "content": system},
@@ -43,7 +45,7 @@ class QASystem:
                 tools=tools_spec,
                 tool_choice="auto",
                 temperature=0.1,
-                max_tokens=4096,
+                max_tokens=512,
             )
 
             msg = first.choices[0].message
