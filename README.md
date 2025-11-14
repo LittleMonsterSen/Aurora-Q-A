@@ -1,8 +1,8 @@
 # Aurora-Q-A
 
-Member Memory QA — A conversational AI system for answering questions about member preferences and history using RAG (Retrieval-Augmented Generation).
-See screen recording of example queries in QA screen recording.mp4
-Production live API: https://aurora-q-a-production.up.railway.app
+- Member Memory QA — A conversational AI system for answering questions about member preferences and history using RAG (Retrieval-Augmented Generation).
+- See screen recording of example queries in QA screen recording.mp4
+- Production live API: https://aurora-q-a-production.up.railway.app
 
 ## Architecture
 
